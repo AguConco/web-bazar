@@ -1,0 +1,46 @@
+header {
+    border-bottom: 1px solid var(--color-border);
+    width: 100%;
+    background: var(--white);
+}
+
+header > div {
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
+}
+
+.headerSectionTop, .headerSectionBottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.headerSectionTop > div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.headerSectionTop > div a {
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 15px;
+}
+
+.headerSectionTop > div a:nth-last-child(1) {
+    background: var(--primary);
+    color: var(--clear-text);
+    font-weight: 300;
+}
+
+.headerSectionTop > div a:nth-last-child(2) {
+    color: var(--primary);
+    background: var(--background);
+}
+
+.headerSectionTop > div a:active{
+    filter: contrast(.9);
+}

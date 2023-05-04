@@ -1,0 +1,16 @@
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav ul li a {
+    font-size: 16px;
+    padding: 5px 7px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
