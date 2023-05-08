@@ -8,9 +8,10 @@ header > div {
     width: 100%;
     max-width: 1024px;
     margin: auto;
+    height: 130px;
 }
 
-.headerSectionTop, .headerSectionBottom {
+.headerTop, .headerBottom {
     width: 100%;
     display: flex;
     align-items: center;
@@ -18,29 +19,8 @@ header > div {
     padding: 15px 0;
 }
 
-.headerSectionTop > div{
+.headerTop > div{
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.headerSectionTop > div a {
-    border-radius: 5px;
-    padding: 5px 15px;
-    font-size: 15px;
-}
-
-.headerSectionTop > div a:nth-last-child(1) {
-    background: var(--primary);
-    color: var(--clear-text);
-    font-weight: 300;
-}
-
-.headerSectionTop > div a:nth-last-child(2) {
-    color: var(--primary);
-    background: var(--background);
-}
-
-.headerSectionTop > div a:active{
-    filter: contrast(.9);
 }

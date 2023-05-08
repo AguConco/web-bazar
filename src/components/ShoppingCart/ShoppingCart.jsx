@@ -10,8 +10,8 @@ export function ShoppingCart() {
 
     return (
         <Link to={'/cart'} className="shoppingCart">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span className="countItemShoppingCart">5</span>
+            <i className="fa-solid fa-cart-shopping"></i>
+            <span className="countItemShoppingCart">45</span>
         </Link>
     )
 }

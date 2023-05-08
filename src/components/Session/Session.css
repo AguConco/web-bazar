@@ -1,0 +1,20 @@
+.btnRegister, .btnLogin{
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 15px;
+}
+
+.btnRegister{
+    background: var(--primary);
+    color: var(--clear-text);
+    font-weight: 300;
+}
+
+.btnLogin {
+    color: var(--primary);
+    background: var(--background);
+}
+
+.headerSectionTop > div a:active{
+    filter: contrast(.9);
+}

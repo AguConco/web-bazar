@@ -1,0 +1,124 @@
+.sectionLogin,
+.sectionRegister {
+    width: 100%;
+    max-width: 350px;
+    margin: 60px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+    background: var(--white);
+    padding: 15px 20px;
+}
+
+.sectionLogin h1,
+.sectionRegister h1 {
+    margin-bottom: 15px;
+}
+
+.sectionLogin>div,
+.sectionRegister>div {
+    width: 100%;
+}
+
+.btnAuth {
+    border: 1px solid var(--color-border);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.btnAuth>img {
+    object-fit: contain;
+    width: 20px;
+}
+
+.btnAuth:hover {
+    box-shadow: 0 3px 7px #00000010;
+}
+
+.division {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.division>div {
+    height: 1px;
+    width: 100%;
+    background: var(--dark-grey);
+}
+
+.division>span {
+    display: inline-block;
+    margin: 0 10px;
+    position: relative;
+    top: -2px;
+}
+
+.formLogin input,
+.formRegister input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+    font-size: 16px;
+    border: 1px solid var(--color-border);
+}
+
+.formLogin button,
+.formRegister button {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin: 30px 0;
+    font-size: 16px;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.formLogin button:active,
+.formRegister button:active {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.formLogin button:hover,
+.formRegister button:hover {
+    box-shadow: 0 5px 10px #00000040;
+}
+
+.formLogin span,
+.formRegister span {
+    font-size: 14px;
+    text-align: center;
+    display: block;
+}
+
+.password-reset {
+    padding-left: 5px;
+}
+
+.formLogin a,
+.formRegister a {
+    font-size: 14px;
+    color: #000;
+}
+
+.formRegister {
+    width: 100%;
+}

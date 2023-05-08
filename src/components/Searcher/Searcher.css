@@ -4,6 +4,7 @@
     background: var(--background);
     border: none;
     font-size: 15px;
+    outline: none;
 }
 
 .searcher button {
