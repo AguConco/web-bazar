@@ -28,8 +28,8 @@ export function Register() {
         <section className='sectionRegister'>
             <h1>Registrarse</h1>
             <div>
-                <button className='btnAuth' onClick={() => loginWhitGoogle()}><img src={google} /> Registrarse con Google</button>
-                <button className='btnAuth' onClick={() => loginWhitFacebook()}><img src={facebook} /> Registrarse con Facebook</button>
+                <button className='btnAuth' onClick={() => loginWhitGoogle(setError)}><img src={google} /> Registrarse con Google</button>
+                <button className='btnAuth' onClick={() => loginWhitFacebook(setError)}><img src={facebook} /> Registrarse con Facebook</button>
             </div>
             <div className='division'>
                 <div></div>

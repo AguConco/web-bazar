@@ -55,9 +55,13 @@ export const AuthProvider = ({ children }) => {
                 navigate("/")
             })
             .catch(error => {
-                const { code } = error
-                code === 'auth/too-many-requests' && setError('*El acceso a esta cuenta se ha inhabilitado temporalmente debido a muchos intentos fallidos de inicio de sesión. Puede restaurarlo inmediatamente restableciendo su contraseña o puede volver a intentarlo más tarde.')
-                code === 'auth/user-not-found' && setError('*No se encontró ningún usuario. Prueba con otro correo')
+                setError(() => {
+                    if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found')
+                        return 'El correo electrónico o la contraseña son incorrectos.'
+                    else if (error.code === 'auth/too-many-requests')
+                        return 'El acceso a esta cuenta se ha inhabilitado temporalmente debido a muchos intentos fallidos de inicio de sesión. Puede restaurarlo inmediatamente restableciendo su contraseña o puede volver a intentarlo más tarde.'
+                }
+                )
             })
     }
 

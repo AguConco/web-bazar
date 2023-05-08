@@ -64,7 +64,9 @@
     display: inline-block;
     margin: 0 10px;
     position: relative;
-    top: -2px;
+    top: -3px;
+    font-size: 20px;
+    font-weight: 300;
 }
 
 .formLogin input,
@@ -121,4 +123,13 @@
 
 .formRegister {
     width: 100%;
+}
+
+.error {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ec575a;
+    background: #ec575a30;
+    color: #ec575a;
 }
