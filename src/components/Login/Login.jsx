@@ -9,17 +9,18 @@ export function Login() {
 
     const { user, loginWhitGoogle, loginWhitFacebook, login } = useContext(AuthContext)
     const [error, setError] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [visible, setVisible] = useState(false)
 
     const navigate = useNavigate()
 
     const submitLogin = e => {
         e.preventDefault()
-        setError('')
-        
+        setError(null)
+
         if (email !== '' && password !== '')
-            login({ email, password }, setError)
+            error !== null && login({ email, password }, setError)
         else
             setError('Completa todos los campos.')
 
@@ -47,7 +48,8 @@ export function Login() {
                     <input onKeyUp={({ target }) => setEmail(target.value.trim())} type="email" autoComplete="off" placeholder='Correo electrónico' />
                 </div>
                 <div>
-                    <input onKeyUp={({ target }) => setPassword(target.value.trim())} type="password" placeholder='Contraseña' />
+                    <i onClick={()=>setVisible(!visible)} className={visible ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"}></i>
+                    <input onKeyUp={({ target }) => setPassword(target.value.trim())} type={visible ? "text" : "password"} placeholder='Contraseña' />
                     <Link to={'/password-reset'} className='password-reset'>¿Olvidaste tu contraseña?</Link>
                 </div>
                 <button type="submit">Iniciar sesión</button>

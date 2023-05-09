@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
                 })
             })
             .catch(error => {
-                error.code === 'auth/email-already-in-use' && setError('*Este correo electrónico ya está en uso.')
+                error.code === 'auth/email-already-in-use' && setError('Este correo electrónico ya está en uso.')
             })
     }
 
