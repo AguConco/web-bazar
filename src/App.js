@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app"
 import { Login } from './components/Login/Login'
 import { AuthProvider } from './context/authContext'
 import { Register } from './components/Register/Register'
+import { Profile } from './components/Profile/Profile'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCRKtrnLExKto3CZcwKeoqWoqouk_Z3Gc",
@@ -24,11 +25,13 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<div>inicio</div>} />
-          <Route path='/category/:category-id' element={<div>categorías</div>} />
+          <Route path='/category/:categoryId' element={<div>categorías</div>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/password-reset' element={<div>cambiar contraseña</div>} />
           <Route path='/cart' element={<div>cart</div>} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/my-purchases' element={<div>mis compras</div>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

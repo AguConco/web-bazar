@@ -9,16 +9,17 @@ export function Header() {
     return (
         <header>
             <div>
-                <div className='headerTop'>
-                    <Link to={'/'}><img src="" alt="logo" /></Link>
-                    <div>
-                        <ShoppingCart />
-                        <Session />
-                    </div>
-                </div>
-                <div className='headerBottom'>
+                <div>
+                    <Link to={'/'}>
+                        {/* <img src="" alt="logo" /> */}
+                        BR
+                    </Link>
                     <NavBar />
-                    <Searcher />
+                </div>
+                <Searcher />
+                <div>
+                    <ShoppingCart />
+                    <Session />
                 </div>
             </div>
         </header>

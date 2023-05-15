@@ -1,0 +1,72 @@
+.user-photo {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.user-photo img {
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.user-photo:hover .edit-user-photo {
+    display: flex;
+}
+
+.edit-user-photo {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: #00000060;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.edit-user-photo button {
+    height: 50%;
+    width: 100%;
+    align-items: center;
+    background: transparent;
+    display: block;
+    border: none;
+    position: relative;
+}
+
+.edit-user-photo button span {
+    position: relative;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.edit-user-photo button:hover {
+    background: #00000070;
+}
+
+.update-user-photo input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+}
+
+.update-user-photo span {
+    top: 5px;
+}
+
+.delete-user-photo span {
+    top: -7px;
+}

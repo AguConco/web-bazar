@@ -9,9 +9,9 @@ export function ShoppingCart() {
     },[])
 
     return (
-        <Link to={'/cart'} className="shoppingCart">
+        <Link to={'/cart'} className="shopping-cart">
             <i className="fa-solid fa-cart-shopping"></i>
-            <span className="countItemShoppingCart">45</span>
+            {/* <span className="countItemShoppingCart">15</span> */}
         </Link>
     )
 }

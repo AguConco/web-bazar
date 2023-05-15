@@ -1,0 +1,31 @@
+.profile {
+    max-width: 1200px;
+    margin: 40px auto;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: 250px 930px;
+}
+
+.profile-sections {
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    padding: 20px;
+    background: var(--white);
+    margin-bottom: 10px;
+}
+
+.user-data {
+    max-width: 250px;
+}
+
+.user-data h2 {
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 0 5px;
+}
+
+.user-data span {
+    font-size: 16px;
+    display: block;
+    text-align: center;
+}

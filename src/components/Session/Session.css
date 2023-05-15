@@ -1,20 +1,107 @@
-.btnRegister, .btnLogin{
+.btn-register, .btn-login{
     border-radius: 5px;
-    padding: 5px 15px;
+    padding: 10px 15px;
     font-size: 15px;
 }
 
-.btnRegister{
+.btn-register{
     background: var(--primary);
     color: var(--clear-text);
     font-weight: 300;
 }
 
-.btnLogin {
+.btn-login {
     color: var(--primary);
     background: var(--background);
 }
 
-.headerSectionTop > div a:active{
-    filter: contrast(.9);
+.photo-profile {
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+.photo-profile:active {
+    outline: 1px solid var(--primary);
+}
+
+.photo-profile img {
+    height: 34px;
+    width: 33px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.user-menu {
+    background: var(--white);
+    padding: 5px 0;
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 5px 10px #00000020;
+    position: absolute;
+    right: 0;
+    top: 140%;
+    width: 250px;
+}
+
+.user-info {
+    padding: 10px 15px 15px;
+    text-align: center;
+}
+
+.user-info h3 {
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.user-info span {
+    color: #1872fa;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.user-menu ul {
+    margin-bottom: 25px;
+    border-top: 1px solid var(--color-border);
+}
+
+.user-menu ul li a{
+    display: flex;
+    gap: 15px;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+.user-menu ul li a i{
+    position: relative;
+    top: 2px;
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 7px 15px;
+    background: none;
+    font-size: 15px;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-logout i {
+    font-size: 15px;
+    position: relative;
+    top: 1px;
+}
+
+.btn-logout:hover, .user-menu ul li a:hover {
+    background: var(--background);
 }

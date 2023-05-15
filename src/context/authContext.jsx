@@ -9,7 +9,8 @@ import {
     sendPasswordResetEmail,
     GoogleAuthProvider,
     signInWithPopup,
-    FacebookAuthProvider
+    FacebookAuthProvider,
+    sendEmailVerification
 } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
 
@@ -20,6 +21,9 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate()
     const auth = getAuth()
     const [user, setUser] = useState(null)
+
+    // const urlHost = 'https://panel-control-bazar.000webhostapp.com/backend/'
+    const urlHost = 'http://localhost:80/Bazar-Backend/'
 
     const loginWhitFacebook = (setError) => {
         const facebookProvider = new FacebookAuthProvider()
@@ -81,9 +85,52 @@ export const AuthProvider = ({ children }) => {
             .catch((error) => error.code === 'auth/user-not-found' && setError('*No se encontró ningún usuario. Prueba con otro correo'))
     }
 
+    const updateUserPhoto = ({ uid, photo }, setStateUpdate) => {
+
+        const userData = new FormData()
+        userData.append('uid', uid)
+        userData.append('photo', photo)
+
+        fetch(`${urlHost}updateUserPhoto.php`, {
+            method: 'POST',
+            body: userData
+        })
+            .then(e => e.json())
+            .then(e => {
+                const { response, message } = e
+                if (response === 'success') {
+                    updateProfile(auth.currentUser, {
+                        photoURL: photo ? `${urlHost}/p/${uid}/${photo.name}` : '',
+                    }).then(() => {
+                        setStateUpdate(true)
+                    })
+                }
+            })
+    }
+
+    const deleteUserPhoto = (setStateUpdate) => {
+        updateProfile(auth.currentUser, {
+            photoURL: '',
+        }).then(() => {
+            setStateUpdate(true)
+        })
+    }
+
     useEffect(() => {
         onAuthStateChanged(auth, user => user && setUser(user))
     }, [])
 
-    return <AuthContext.Provider value={{ register, login, logOut, passwordReset, loginWhitGoogle, loginWhitFacebook, user }}> {children} </AuthContext.Provider>
+    return <AuthContext.Provider value={{
+        register,
+        login,
+        logOut,
+        passwordReset,
+        loginWhitGoogle,
+        loginWhitFacebook,
+        updateUserPhoto,
+        deleteUserPhoto,
+        user
+    }}>
+        {children}
+    </AuthContext.Provider>
 }

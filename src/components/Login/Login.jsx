@@ -48,7 +48,7 @@ export function Login() {
                     <input onKeyUp={({ target }) => setEmail(target.value.trim())} type="email" autoComplete="off" placeholder='Correo electrónico' />
                 </div>
                 <div>
-                    <i onClick={()=>setVisible(!visible)} className={visible ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"}></i>
+                    <i onClick={() => setVisible(!visible)} className={visible ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"}></i>
                     <input onKeyUp={({ target }) => setPassword(target.value.trim())} type={visible ? "text" : "password"} placeholder='Contraseña' />
                     <Link to={'/password-reset'} className='password-reset'>¿Olvidaste tu contraseña?</Link>
                 </div>
