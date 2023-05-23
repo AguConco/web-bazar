@@ -1,28 +1,23 @@
-import { useRef, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import './NavBar.css'
 import { Link } from 'react-router-dom'
+import { ProductContext } from '../../context/productContext'
+import { category } from '../../constants/constants'
 
 export function NavBar() {
 
-    document.onclick = e => {
-        if (navRef.current && !navRef.current.contains(e.target)) setVisible(false)
-    }
-
-    const [visible, setVisible] = useState(false)
-    const navRef = useRef()
+    const { setLoadedProducts } = useContext(ProductContext)
 
     return (
-        <nav ref={navRef} >
-            <button onClick={()=>setVisible(!visible)}>Categorías <i className="fa-solid fa-angle-down"></i></button>
-            {visible &&
-                <ul onClick={()=>setVisible(false)}>
-                    <li><Link to={'/category/cc'}>Cocina</Link></li>
-                    <li><Link to={'/category/cr'}>Regalería</Link></li>
-                    <li><Link to={'/category/cj'}>Juguetería</Link></li>
-                    <li><Link to={'/category/cmt'}>Mates y termos</Link></li>
-                    <li><Link to={'/category/clb'}>Limpieza y baño</Link></li>
-                    <li><Link to={'/category/cv'}>Varios</Link></li>
-                </ul>}
+        <nav>
+            <ul>
+                {category.map(c => {
+                    return c.categoryId !== 'all' &&
+                        <li key={c.categoryId}>
+                            <Link onClick={() => setLoadedProducts(2)} to={'/category/' + c.categoryId}>{c.categoryName}</Link>
+                        </li>
+                })}
+            </ul>
         </nav>
     )
 }

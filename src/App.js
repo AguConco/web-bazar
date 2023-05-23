@@ -6,6 +6,10 @@ import { Login } from './components/Login/Login'
 import { AuthProvider } from './context/authContext'
 import { Register } from './components/Register/Register'
 import { Profile } from './components/Profile/Profile'
+import { AddAddress } from './components/AddAddress/AddAddress'
+import { AddPhone } from './components/AddPhone/AddPhone'
+import { ProductProvider } from './context/productContext'
+import { ProductListForCategory } from './components/ProductList/ProductList'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCRKtrnLExKto3CZcwKeoqWoqouk_Z3Gc",
@@ -22,17 +26,21 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Header />
-        <Routes>
-          <Route path='/' element={<div>inicio</div>} />
-          <Route path='/category/:categoryId' element={<div>categorías</div>} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/password-reset' element={<div>cambiar contraseña</div>} />
-          <Route path='/cart' element={<div>cart</div>} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/my-purchases' element={<div>mis compras</div>} />
-        </Routes>
+        <ProductProvider>
+          <Header />
+          <Routes>
+            <Route path='/' element={<div>inicio</div>} />
+            <Route path='/category/:categoryId' element={<ProductListForCategory />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/password-reset' element={<div>cambiar contraseña</div>} />
+            <Route path='/cart' element={<div>cart</div>} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/my-purchases' element={<div>mis compras</div>} />
+            <Route path='/add-address' element={<AddAddress />} />
+            <Route path='/add-phone' element={<AddPhone />} />
+          </Routes>
+        </ProductProvider>
       </AuthProvider>
     </BrowserRouter>
   )

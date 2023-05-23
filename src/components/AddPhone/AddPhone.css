@@ -1,0 +1,17 @@
+.edit-data-phone form {
+    margin-top: 10px;
+}
+
+.edit-data-phone form div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-data-phone input {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background: var(--background);
+    margin: 10px 0;
+    font-size: 15px;
+}

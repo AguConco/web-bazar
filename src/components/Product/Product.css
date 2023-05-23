@@ -1,0 +1,42 @@
+.product {
+    width: 260px;
+    border-radius: 5px;
+    border: 1px solid var(--light-grey);
+    padding:25px;
+    background: var(--white);
+}
+
+.product:hover {
+    box-shadow: 0 5px 10px #00000020;
+}
+
+.container-picture {
+    width: 100%;
+    height: 180px;
+}
+
+.container-picture img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.info-product {
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.product span {
+    color: var(--primary);
+    font-size: 24px;
+}
+
+.product h2 {
+    font-size: 18px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%;
+    margin-top: 5px;
+}

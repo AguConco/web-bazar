@@ -1,0 +1,64 @@
+.userData h2 {
+    margin-bottom: 20px;
+}
+
+.profile-sections h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.profile-sections p {
+    color: var(--dark-grey);
+    font-weight: 300;
+}
+
+.add-data {
+    color: var(--primary);
+    border-radius: 5px;
+    background: var(--secondary);
+    padding: 7px 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.add-data:active {
+    outline: 1px solid var(--primary);
+}
+
+.type-buyer {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.type-buyer .wholesaler {
+    color: #589112;
+    background: #88c53b30;
+    padding: 5px 7px;
+    border-radius: 5px;
+}
+
+.type-buyer .public {
+    color: var(--dark-grey);
+    background: var(--light-grey);
+    padding: 5px 7px;
+    border-radius: 5px;
+}
+
+.address-data, .phone-data {
+    /* border: 1px solid var(--light-grey); */
+    background: var(--background);
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.address-data h5, .phone-data h5 {
+    font-size: 16px;
+}
+
+.address-data span {
+    font-weight: 300;
+    font-size: 15px;
+}

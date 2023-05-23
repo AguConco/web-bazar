@@ -9,8 +9,7 @@ import {
     sendPasswordResetEmail,
     GoogleAuthProvider,
     signInWithPopup,
-    FacebookAuthProvider,
-    sendEmailVerification
+    FacebookAuthProvider
 } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
 
@@ -24,6 +23,19 @@ export const AuthProvider = ({ children }) => {
 
     // const urlHost = 'https://panel-control-bazar.000webhostapp.com/backend/'
     const urlHost = 'http://localhost:80/Bazar-Backend/'
+
+    const registerUserData = uid => {
+        const userData = new FormData()
+        userData.append('uid', uid)
+
+        fetch(`${urlHost}registerUserData.php`, {
+            method: 'POST',
+            body: userData
+        })
+            .then(e => e.json())
+            .then(e => console.log(e))
+
+    }
 
     const loginWhitFacebook = (setError) => {
         const facebookProvider = new FacebookAuthProvider()
@@ -44,9 +56,7 @@ export const AuthProvider = ({ children }) => {
             .then(() => {
                 updateProfile(auth.currentUser, {
                     displayName: name,
-                }).then(() => {
-                    navigate("/")
-                })
+                }).then(() => navigate('/'))
             })
             .catch(error => {
                 error.code === 'auth/email-already-in-use' && setError('Este correo electrónico ya está en uso.')
@@ -100,7 +110,7 @@ export const AuthProvider = ({ children }) => {
                 const { response, message } = e
                 if (response === 'success') {
                     updateProfile(auth.currentUser, {
-                        photoURL: photo ? `${urlHost}/p/${uid}/${photo.name}` : '',
+                        photoURL: photo ? `${urlHost}p/${uid}/${photo.name}` : '',
                     }).then(() => {
                         setStateUpdate(true)
                     })
@@ -129,6 +139,7 @@ export const AuthProvider = ({ children }) => {
         loginWhitFacebook,
         updateUserPhoto,
         deleteUserPhoto,
+        registerUserData,
         user
     }}>
         {children}

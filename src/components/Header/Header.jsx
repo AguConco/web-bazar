@@ -9,12 +9,11 @@ export function Header() {
     return (
         <header>
             <div>
-                <div>
-                    <Link to={'/'}>
+                <div className='logo'>
+                    <Link to={'/'} title='Página principal de Bazar & Regalería'>
                         {/* <img src="" alt="logo" /> */}
-                        BR
+                        B&R
                     </Link>
-                    <NavBar />
                 </div>
                 <Searcher />
                 <div>
@@ -22,6 +21,7 @@ export function Header() {
                     <Session />
                 </div>
             </div>
+            <NavBar />
         </header>
     )
 } 

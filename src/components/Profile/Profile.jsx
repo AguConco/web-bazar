@@ -3,10 +3,12 @@ import { AuthContext } from "../../context/authContext"
 import { Loading } from "../Loading/Loading"
 import './Profile.css'
 import { UserPhoto } from "../UserPhoto/UserPhoto"
+import { Link } from "react-router-dom"
+import { UserData } from "../UserData/UserData"
 
 export function Profile() {
 
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     useEffect(() => {
         document.title = 'Mi perfil • Bazar Regalería'
@@ -16,42 +18,22 @@ export function Profile() {
         user ?
             <section className="profile">
                 <div>
-                    <div className="user-data profile-sections">
+                    <div className="profile-sections">
                         <UserPhoto />
-                        <h1>{user.displayName}</h1>
-                        <span>{user.email}</span>
+                        <h1 className="profile-user-name">{user.displayName}</h1>
+                        <span className="profile-user-email">{user.email}</span>
                     </div>
                     <div className="profile-sections">
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                        <ul className="user-nav">
+                            <li><Link to={'/my-purchases'}><i className="fa-solid fa-bag-shopping"></i> Mis pedidos </Link></li>
+                            <li><Link to={'/help'}><i className="fa-solid fa-circle-question"></i> Ayuda </Link></li>
+                            <li><button onClick={() => logOut()}><i className="fa-solid fa-right-from-bracket"></i> Cerrar sesión </button></li>
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <h2>TUS DATOS </h2>
-                    </div>
-                    <div className="profile-sections type-buyer"><h4>Tipo de comprador</h4></div>
-                    <div className="profile-sections address">
-                        <h4>Dirección</h4>
-                        <p>Esta información se utiliza para los envios.</p>
-                    </div>
-                </div>
+                <UserData />
             </section>
             :
             <Loading />
     )
-}
-
-{/* <button onClick={() => getLocation()}>Obtener Localización</button> */ }
-
-const getLocation = () => {
-    navigator.geolocation.getCurrentPosition(p => {
-        const { latitude, longitude } = p.coords
-        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
-            .then(e => e.json())
-            .then(e => console.log(e))
-    })
 }

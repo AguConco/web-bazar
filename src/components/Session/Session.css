@@ -28,11 +28,12 @@
 
 .photo-profile:active {
     outline: 1px solid var(--primary);
+    outline-offset: 2px;
 }
 
 .photo-profile img {
-    height: 34px;
-    width: 33px;
+    height: 100%;
+    width: 100%;
     object-fit: contain;
     border-radius: 50%;
 }
@@ -41,11 +42,12 @@
     background: var(--white);
     padding: 5px 0;
     border-radius: 5px;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--light-grey);
     box-shadow: 0 5px 10px #00000020;
     position: absolute;
     right: 0;
     top: 140%;
+    z-index: 100;
     width: 250px;
 }
 
@@ -67,7 +69,7 @@
 
 .user-menu ul {
     margin-bottom: 25px;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--light-grey);
 }
 
 .user-menu ul li a{
@@ -90,7 +92,7 @@
     text-align: left;
     border: none;
     cursor: pointer;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--light-grey);
     display: flex;
     align-items: center;
     gap: 15px;

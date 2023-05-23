@@ -1,0 +1,73 @@
+.section-edit-user-data {
+    max-width: 600px;
+    margin: 60px auto;
+}
+
+.section-edit-user-data>div:nth-child(1) {
+    margin-bottom: 30px;
+}
+
+.section-edit-user-data h1 {
+    margin-top: 10px;
+}
+
+.section-edit-user-data a,
+.section-edit-user-data a i {
+    color: var(--dark-grey);
+}
+
+.section-edit-user-data a:hover,
+.section-edit-user-data a:hover i {
+    color: var(--primary);
+}
+
+.edit-data-address {
+    width: 600px;
+}
+
+.edit-data-address form {
+    margin-top: 10px;
+}
+
+.edit-data-address form div:first-child {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.edit-data-address form div:first-child span {
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.edit-data-address form div:last-child {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-data-address input {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background: var(--background);
+    margin: 10px 20px 10px 0;
+    font-size: 15px;
+}
+
+.btn-save-address {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 300;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-save-address:active {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
