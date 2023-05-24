@@ -14,7 +14,7 @@ export function NavBar() {
                 {category.map(c => {
                     return c.categoryId !== 'all' &&
                         <li key={c.categoryId}>
-                            <Link onClick={() => setLoadedProducts(2)} to={'/category/' + c.categoryId}>{c.categoryName}</Link>
+                            <Link onClick={() => setLoadedProducts(2)} to={'/category/' + c.categoryId + '/all'}>{c.categoryName}</Link>
                         </li>
                 })}
             </ul>

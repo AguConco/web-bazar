@@ -14,7 +14,7 @@ export const ProductProvider = ({ children }) => {
         return await fetch(`${urlHost}${urlFile}`, { method, body })
     }
 
-    const getProducts = (categoryId, setLoading) => {
+    const getProductsCategory = (categoryId, setLoading) => {
         setLoading(true)
         const urlFile = `category.php?categoryId=${categoryId}&offset=${(loadedProducts * 10) - 20}`
 
@@ -27,8 +27,22 @@ export const ProductProvider = ({ children }) => {
 
     }
 
+    const getProductsSubcategory = (subcategoryId, setLoading) => {
+        setLoading(true)
+        const urlFile = `subcategories.php?subcategoryId=${subcategoryId}&offset=${(loadedProducts * 10) - 20}`
+
+        callServer(urlFile, 'GET')
+            .then(e => e.json())
+            .then(e => {
+                setProductList(e)
+            })
+            .finally(() => setLoading(false))
+
+    }
+
     return <ProductContext.Provider value={{
-        getProducts,
+        getProductsCategory,
+        getProductsSubcategory,
         setLoadedProducts,
         loadedProducts,
         productList

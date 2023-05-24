@@ -1,33 +1,51 @@
 import { useContext, useEffect, useState } from "react"
 import { ProductContext } from "../../context/productContext"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { Product } from "../Product/Product"
 import { Loading } from "../Loading/Loading"
 import './ProductList.css'
-import { category } from "../../constants/constants"
+import { category, subcategories } from "../../constants/constants"
+import { Subcategories } from "../Subcategories/Subcategories"
 
 export function ProductListForCategory() {
 
-    const { getProducts, productList, loadedProducts, setLoadedProducts } = useContext(ProductContext)
-    const { categoryId } = useParams()
+    const { getProductsCategory, getProductsSubcategory, productList, loadedProducts, setLoadedProducts } = useContext(ProductContext)
+    const { categoryId, subcategoryId } = useParams()
 
     const [loading, setLoading] = useState(true)
+    const [sub, setSub] = useState()
 
     useEffect(() => {
         window.scrollTo({
             top: 0,
             left: 0,
             behavior: 'smooth'
-          });
-        getProducts(categoryId, setLoading)
-    }, [categoryId, loadedProducts])
+        });
+        subcategoryId === 'all' ? getProductsCategory(categoryId, setLoading) : getProductsSubcategory(subcategoryId, setLoading)
+        setSub(subcategories.filter(s => s[0] === categoryId))
+    }, [categoryId, subcategoryId, loadedProducts])
 
     return (
         !loading ?
             <section className="section-products">
-                <div className="filters">
-                    <span>{category.filter(e => e.categoryId === categoryId )[0].categoryName}</span>
-                </div>
+                <aside className="filters">
+                    <h3>{category.filter(e => e.categoryId === categoryId)[0].categoryName}</h3>
+                    <div>
+                        <div className="filters-header">
+                            <span>Subcategorías</span>
+                            {/* agregar un botón para borrar el filtro de subcategoria */}
+                        </div>
+                        <ul>
+                            <li>
+                                <Link to={`/category/${categoryId}/all`} >
+                                    {'all' === subcategoryId ? <i class="fa-regular fa-circle-check"></i> : <i class="fa-regular fa-circle"></i>}
+                                    <span>Todos</span>
+                                </Link>
+                            </li>
+                            {sub[0].map(e => e !== categoryId && <Subcategories key={e} data={e} />)}
+                        </ul>
+                    </div>
+                </aside>
                 <div>
                     <div className="product-list">
                         {productList.products.map(e => <Product key={e.id} data={e} />)}
