@@ -1,4 +1,3 @@
-import './App.css'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import { Header } from './components/Header/Header'
 import { initializeApp } from "firebase/app"

@@ -1,0 +1,77 @@
+.add-to-cart {
+    margin-top: 60px;
+    width: 100%;
+}
+
+.add-to-cart>span {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.add-to-cart input {
+    display: inline-block;
+    width: 60px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    font-size: 17px;
+    border: none;
+    border-top: 1px solid var(--secondary);
+    border-bottom: 1px solid var(--secondary);
+}
+
+.add-to-cart button[type='button'] {
+    color: var(--primary);
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+    border: 1px solid var(--secondary);
+}
+
+.add-to-cart button[type='button']:nth-child(1) {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+.add-to-cart button[type='button']:nth-child(3) {
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+}
+
+.add-to-cart button[type='button']:active {
+    background: var(--secondary);
+}
+
+.add-to-cart button[type='submit'] {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.add-to-cart button[type='submit']:nth-last-child(1) {
+    color: #fff;
+    font-weight: 300;
+    background: var(--primary);
+}
+
+.add-to-cart button[type='submit']:nth-last-child(2) {
+    color: var(--primary);
+    background: var(--secondary);
+}
+
+.add-to-cart button[type='submit']:active {
+    outline: 1px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.add-to-cart button[type='submit']:hover {
+    box-shadow: 0 5px 10px #00000010;
+}

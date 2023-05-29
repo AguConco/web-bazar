@@ -40,10 +40,17 @@ export const ProductProvider = ({ children }) => {
 
     }
 
+    const detailProduct = async (id) => {
+        const urlFile = `productDetail.php?id=${id}`
+
+        return await callServer(urlFile ,'GET')
+    }
+
     return <ProductContext.Provider value={{
         getProductsCategory,
         getProductsSubcategory,
         setLoadedProducts,
+        detailProduct,
         loadedProducts,
         productList
     }}>

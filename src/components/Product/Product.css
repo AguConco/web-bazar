@@ -2,7 +2,7 @@
     width: 260px;
     border-radius: 5px;
     border: 1px solid var(--light-grey);
-    padding:25px;
+    padding: 25px;
     background: var(--white);
 }
 
@@ -26,12 +26,21 @@
     border-radius: 5px;
 }
 
-.product span {
+.info-product div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-product span {
     color: var(--primary);
     font-size: 24px;
 }
 
-.product h2 {
+.info-product div p {
+    font-size: 14px;
+}
+
+.info-product>p {
     font-size: 18px;
     display: -webkit-box;
     -webkit-line-clamp: 2;

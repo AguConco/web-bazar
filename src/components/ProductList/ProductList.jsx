@@ -20,7 +20,7 @@ export function ProductListForCategory() {
             top: 0,
             left: 0,
             behavior: 'smooth'
-        });
+        })
         subcategoryId === 'all' ? getProductsCategory(categoryId, setLoading) : getProductsSubcategory(subcategoryId, setLoading)
         setSub(subcategories.filter(s => s[0] === categoryId))
     }, [categoryId, subcategoryId, loadedProducts])
@@ -38,7 +38,7 @@ export function ProductListForCategory() {
                         <ul>
                             <li>
                                 <Link to={`/category/${categoryId}/all`} >
-                                    {'all' === subcategoryId ? <i class="fa-regular fa-circle-check"></i> : <i class="fa-regular fa-circle"></i>}
+                                    {'all' === subcategoryId ? <i className="fa-regular fa-circle-check"></i> : <i className="fa-regular fa-circle"></i>}
                                     <span>Todos</span>
                                 </Link>
                             </li>

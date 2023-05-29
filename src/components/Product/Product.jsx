@@ -9,8 +9,11 @@ export function Product({ data }) {
                 <img src={data.picture} alt={data.name} />
             </div>
             <div className="info-product">
-                <span>$ {data.price.price_public}</span>
-                <h2>{data.name}</h2>
+                <div>
+                    <span>$ {data.price.price_public}</span>
+                    <p>{data.available_quantity} en stock</p>
+                </div>
+                <p>{data.name}</p>
             </div>
         </Link>
     )
