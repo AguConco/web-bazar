@@ -19,10 +19,8 @@ header > div > div {
     display: flex;
     align-items: center;
     justify-content: end;
-    gap: 10px;
     position: relative;
     width: 280px;
-    /* outline: auto; */
 }
 
 .logo {

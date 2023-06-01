@@ -10,6 +10,7 @@ import { AddPhone } from './components/AddPhone/AddPhone'
 import { ProductProvider } from './context/productContext'
 import { ProductListForCategory } from './components/ProductList/ProductList'
 import { ProductDetail } from './components/ProductDetail/ProductDetail'
+import { PasswordReset } from './components/PasswordReset/PasswordReset'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCRKtrnLExKto3CZcwKeoqWoqouk_Z3Gc",
@@ -33,7 +34,7 @@ function App() {
             <Route path='/category/:categoryId/:subcategoryId' element={<ProductListForCategory />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path='/password-reset' element={<div>cambiar contraseña</div>} />
+            <Route path='/password-reset' element={<PasswordReset />} />
             <Route path='/cart' element={<div>cart</div>} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/my-purchases' element={<div>mis compras</div>} />

@@ -1,6 +1,7 @@
 .add-to-cart {
     margin-top: 60px;
     width: 100%;
+    max-width: 230px;
 }
 
 .add-to-cart>span {
@@ -47,7 +48,7 @@
 }
 
 .add-to-cart button[type='submit'] {
-    padding: 15px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     font-size: 17px;

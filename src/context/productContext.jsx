@@ -43,7 +43,20 @@ export const ProductProvider = ({ children }) => {
     const detailProduct = async (id) => {
         const urlFile = `productDetail.php?id=${id}`
 
-        return await callServer(urlFile ,'GET')
+        return await callServer(urlFile, 'GET')
+    }
+
+    const updateViews = (id) => {
+        const urlFile = `updateView.php`
+        const productId = new FormData()
+        productId.append('id', id)
+
+        callServer(urlFile, 'POST', productId)
+    }
+
+    const searchProduct = async ({ code, name }) => {
+        const urlFile = `searchProduct.php?name=${name}&code=${code}`
+        return await  callServer(urlFile, 'GET')
     }
 
     return <ProductContext.Provider value={{
@@ -51,6 +64,8 @@ export const ProductProvider = ({ children }) => {
         getProductsSubcategory,
         setLoadedProducts,
         detailProduct,
+        updateViews,
+        searchProduct,
         loadedProducts,
         productList
     }}>

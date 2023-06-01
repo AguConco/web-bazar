@@ -15,7 +15,11 @@ export function ProductListForCategory() {
     const [loading, setLoading] = useState(true)
     const [sub, setSub] = useState()
 
+    const currentCategory = category.filter(e => e.categoryId === categoryId)[0].categoryName
+
     useEffect(() => {
+        document.title = currentCategory + ' • Bazar Regalería'
+
         window.scrollTo({
             top: 0,
             left: 0,
@@ -29,11 +33,10 @@ export function ProductListForCategory() {
         !loading ?
             <section className="section-products">
                 <aside className="filters">
-                    <h3>{category.filter(e => e.categoryId === categoryId)[0].categoryName}</h3>
+                    <h3>{currentCategory}</h3>
                     <div>
                         <div className="filters-header">
                             <span>Subcategorías</span>
-                            {/* agregar un botón para borrar el filtro de subcategoria */}
                         </div>
                         <ul>
                             <li>

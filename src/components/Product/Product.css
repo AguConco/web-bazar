@@ -41,6 +41,7 @@
 }
 
 .info-product>p {
+    font-weight: 300;
     font-size: 18px;
     display: -webkit-box;
     -webkit-line-clamp: 2;

@@ -11,6 +11,7 @@
     border: 1px solid var(--light-grey);
     background: var(--white);
     padding: 15px 20px;
+    box-shadow: 0 5px 10px #00000010;
 }
 
 .sectionLogin h1,

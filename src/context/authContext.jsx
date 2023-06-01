@@ -92,7 +92,7 @@ export const AuthProvider = ({ children }) => {
             .then(() => {
                 setSuccess('¡El correo se envió correctamente! Ya puedes iniciar sesión con tu contraseña nueva. (Revisa en la casilla de "spam")')
             })
-            .catch((error) => error.code === 'auth/user-not-found' && setError('*No se encontró ningún usuario. Prueba con otro correo'))
+            .catch((error) => error.code === 'auth/user-not-found' && setError('No se encontró ningún usuario con este correo.'))
     }
 
     const updateUserPhoto = ({ uid, photo }, setStateUpdate) => {

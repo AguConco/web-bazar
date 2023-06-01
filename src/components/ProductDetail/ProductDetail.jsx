@@ -8,7 +8,7 @@ import { AddToCart } from "../AddToCart/AddToCart"
 
 export function ProductDetail() {
 
-    const { detailProduct, setLoadedProducts } = useContext(ProductContext)
+    const { detailProduct, setLoadedProducts, updateViews } = useContext(ProductContext)
     const { productId } = useParams()
 
     const [detail, setDetail] = useState(null)
@@ -21,8 +21,10 @@ export function ProductDetail() {
                 setDetail(e[0])
                 const sub = subcategories.filter(s => s[0] === e[0].category.category_id)
                 linkSubcategories.length === 0 && setLinkSubcategories([...linkSubcategories, ...sub[0].map(s => e[0].category.subcategory.includes(s.split('|')[1]) && s)])
+                updateViews(e[0].id)
+                document.title = e[0].name +' • Bazar Regalería'
             })
-        // falta funcion del context que actualiza las views del producto
+        // ver de agregar un historial de los productos que vio
     }, [productId])
 
     return (
