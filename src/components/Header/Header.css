@@ -20,7 +20,8 @@ header > div > div {
     align-items: center;
     justify-content: end;
     position: relative;
-    width: 280px;
+    flex-grow: 1;
+    flex-basis: 0;
 }
 
 .logo {

@@ -40,7 +40,7 @@ export function ProductDetail() {
                             <h1 className="product-name">{detail.name}</h1>
                             <span className="product-price">${detail.price.price_public}</span>
                         </div>
-                        <AddToCart stock={detail.available_quantity} />
+                        <AddToCart dataProduct={detail} />
                     </div>
                     <div className="product-categories-subcategories">
                         <span>Ver más sobre</span>

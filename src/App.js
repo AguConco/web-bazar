@@ -11,6 +11,8 @@ import { ProductProvider } from './context/productContext'
 import { ProductListForCategory } from './components/ProductList/ProductList'
 import { ProductDetail } from './components/ProductDetail/ProductDetail'
 import { PasswordReset } from './components/PasswordReset/PasswordReset'
+import { CartProvider } from './context/cartContext'
+import { Cart } from './components/Cart/Cart'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCRKtrnLExKto3CZcwKeoqWoqouk_Z3Gc",
@@ -28,20 +30,22 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <ProductProvider>
-          <Header />
-          <Routes>
-            <Route path='/' element={<div>inicio</div>} />
-            <Route path='/category/:categoryId/:subcategoryId' element={<ProductListForCategory />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/password-reset' element={<PasswordReset />} />
-            <Route path='/cart' element={<div>cart</div>} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/my-purchases' element={<div>mis compras</div>} />
-            <Route path='/add-address' element={<AddAddress />} />
-            <Route path='/add-phone' element={<AddPhone />} />
-            <Route path='/product/:productId' element={<ProductDetail />} />
-          </Routes>
+          <CartProvider>
+            <Header />
+            <Routes>
+              <Route path='/' element={<div>inicio</div>} />
+              <Route path='/category/:categoryId/:subcategoryId' element={<ProductListForCategory />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/password-reset' element={<PasswordReset />} />
+              <Route path='/cart' element={<Cart />} />
+              <Route path='/profile' element={<Profile />} />
+              <Route path='/my-purchases' element={<div>mis compras</div>} />
+              <Route path='/add-address' element={<AddAddress />} />
+              <Route path='/add-phone' element={<AddPhone />} />
+              <Route path='/product/:productId' element={<ProductDetail />} />
+            </Routes>
+          </CartProvider>
         </ProductProvider>
       </AuthProvider>
     </BrowserRouter>
