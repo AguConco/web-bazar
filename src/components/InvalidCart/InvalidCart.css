@@ -1,0 +1,40 @@
+.invalid-cart {
+    width: 350px;
+    margin: 60px auto;
+    border-radius: 5px;
+    border: 1px solid var(--light-grey);
+    padding: 15px;
+    background: var(--white);
+}
+
+.invalid-cart p {
+    font-size: 22px;
+    font-weight: 300;
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.invalid-cart a{
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.invalid-cart a:nth-child(2) {
+    color: var(--primary);
+    background: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.invalid-cart a:nth-child(3) {
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 300;
+}
+
+.invalid-cart a:active {
+    outline: 1px solid var(--primary);
+    outline-offset: 2px;
+}

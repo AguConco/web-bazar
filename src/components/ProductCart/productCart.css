@@ -1,0 +1,85 @@
+.product-cart td {
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.product-cart tr:last-child {
+    border-bottom: none;
+}
+
+.td-product a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.td-product a img {
+    max-width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.td-product a span {
+    width: 100%;
+    max-width: 350px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+.td-product a:hover span {
+    text-decoration: underline;
+}
+
+.td-quantity {
+    padding: 10px;
+}
+
+.td-price {
+    font-size: 18px;
+    line-height: 18px;
+    padding: 10px;
+}
+
+.td-price span {
+    color: var(--dark-grey);
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.delete-product-cart {
+    padding: 7px 10px;
+    border: none;
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+}
+
+.delete-product-cart span {
+    font-weight: 300;
+    border-radius: 5px;
+    color: var(--white);
+    padding: 5px 7px;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 110%;
+    background: #00000099;
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.delete-product-cart:hover {
+    background: #ec575a30;
+}
+
+.delete-product-cart:hover i {
+    color: #ec575a;
+}
+
+.delete-product-cart:hover span {
+    opacity: 1;
+    transition: opacity .3s;
+}

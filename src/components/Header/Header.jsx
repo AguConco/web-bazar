@@ -1,9 +1,9 @@
 import './Header.css'
 import { Searcher } from '../Searcher/Seacrcher'
 import { NavBar } from '../NavBar/NavBar'
-import { ShoppingCart } from '../ShoppingCart/ShoppingCart'
 import { Link } from 'react-router-dom'
 import { Session } from '../Session/Session'
+import { CartWidget } from '../CartWidget/CartWidget'
 
 export function Header() {
     return (
@@ -17,7 +17,7 @@ export function Header() {
                 </div>
                 <Searcher />
                 <div>
-                    <ShoppingCart />
+                    <CartWidget />
                     <Session />
                 </div>
             </div>

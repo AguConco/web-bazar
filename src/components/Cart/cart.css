@@ -1,0 +1,38 @@
+.cart {
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+.cart h1 {
+    margin-bottom: 20px;
+}
+
+.cart-list {
+    background: var(--white);
+    border: 1px solid var(--light-grey);
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 5px 10px #00000010;
+}
+
+.cart-list thead th {
+    text-align: start;
+    text-transform: uppercase;
+    padding: 5px 10px 15px 10px;
+}
+
+.th-product {
+    width: 400px;
+}
+
+.th-quantity {
+    width: 300px;
+}
+
+.th-price {
+    width: 250px;
+}
+
+.cart-list tbody tr:last-child td {
+    border-bottom: none;
+}

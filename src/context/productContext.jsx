@@ -8,7 +8,7 @@ export const ProductProvider = ({ children }) => {
     const urlHost = 'http://localhost:80/Bazar-Backend/'
 
     const [productList, setProductList] = useState({ 'products': [] })
-    const [loadedProducts, setLoadedProducts] = useState(2)
+    const [loadedProducts, setLoadedProducts] = useState(2.1)
 
     const callServer = async (urlFile, method, body) => {
         return await fetch(`${urlHost}${urlFile}`, { method, body })
@@ -16,7 +16,7 @@ export const ProductProvider = ({ children }) => {
 
     const getProductsCategory = (categoryId, setLoading) => {
         setLoading(true)
-        const urlFile = `category.php?categoryId=${categoryId}&offset=${(loadedProducts * 10) - 20}`
+        const urlFile = `category.php?categoryId=${categoryId}&limit=${21}&offset=${(loadedProducts * 10) - 21}`
 
         callServer(urlFile, 'GET')
             .then(e => e.json())
@@ -29,7 +29,7 @@ export const ProductProvider = ({ children }) => {
 
     const getProductsSubcategory = (subcategoryId, setLoading) => {
         setLoading(true)
-        const urlFile = `subcategories.php?subcategoryId=${subcategoryId}&offset=${(loadedProducts * 10) - 20}`
+        const urlFile = `subcategories.php?subcategoryId=${subcategoryId}&offset=${(loadedProducts * 10) - 21}`
 
         callServer(urlFile, 'GET')
             .then(e => e.json())

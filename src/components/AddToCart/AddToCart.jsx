@@ -1,10 +1,13 @@
 import { useContext, useState } from 'react'
 import './AddToCart.css'
 import { CartContext } from '../../context/cartContext'
+import { AuthContext } from '../../context/authContext'
+import { Link } from 'react-router-dom'
 
 export function AddToCart({ dataProduct }) {
 
-    const {addToCart} = useContext(CartContext)
+    const { addToCart } = useContext(CartContext)
+    const { user } = useContext(AuthContext)
 
     const [quantity, setQuantity] = useState(1)
 
@@ -18,17 +21,26 @@ export function AddToCart({ dataProduct }) {
 
     const submitAddToCart = (e) => {
         e.preventDefault()
-        addToCart(quantity,id)
+        addToCart(quantity, id)
     }
 
     return (
-        <form className="add-to-cart" onSubmit={(e) => submitAddToCart(e)} >
-            <button onClick={() => changeCount(false)} type='button'>-</button>
-            <input type="text" disabled value={quantity} />
-            <button onClick={() => changeCount(true)} type='button'>+</button>
-            <span>{available_quantity} en stock</span>
-            <button type="submit">Agregar al carrito</button>
-            <button type="submit">Comprar</button>
-        </form>
+        user ?
+            <form className="add-to-cart" onSubmit={(e) => submitAddToCart(e)} >
+                <button onClick={() => changeCount(false)} type='button'>-</button>
+                <input type="text" disabled value={quantity} />
+                <button onClick={() => changeCount(true)} type='button'>+</button>
+                <span>{available_quantity} en stock</span>
+                <button type="submit">Agregar al carrito</button>
+                <button type="submit">Comprar</button>
+            </form>
+            :
+            <div className='no-user-add-to-cart'>
+                <p>Inicia sesión para poder agregar productos a tu carrito.</p>
+                <div>
+                    <Link to={'/login'}>Iniciar sesión</Link>
+                    <Link to={'/register'}>Registrarse</Link>
+                </div>
+            </div>
     )
 }

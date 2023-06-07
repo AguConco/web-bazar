@@ -1,23 +1,23 @@
 import { useContext, useEffect, useState } from 'react'
-import './ShoppingCart.css'
+import './CartWidget.css'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/cartContext'
 import { AuthContext } from '../../context/authContext'
 
-export function ShoppingCart() {
+export function CartWidget() {
 
-    const { totalQuantity, getCart } = useContext(CartContext)
+    const { getCart } = useContext(CartContext)
     const { user } = useContext(AuthContext)
     const [total, setTotal] = useState(null)
 
     useEffect(() => {
-        setTotal(totalQuantity)
-    }, [totalQuantity, user])
+        setTotal()
+    }, [user])
 
     return (
         <Link to={'/cart'} className="shopping-cart">
             <i className="fa-solid fa-cart-shopping"></i>
-            {user && total && <span className="countItemShoppingCart">{total}</span>}
+            {user && total && <span>{total}</span>}
         </Link>
     )
 }

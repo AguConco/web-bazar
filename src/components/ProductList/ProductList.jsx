@@ -54,9 +54,9 @@ export function ProductListForCategory() {
                         {productList.products.map(e => <Product key={e.id} data={e} />)}
                     </div>
                     <div className='pagination'>
-                        {loadedProducts > 2 && <button onClick={() => setLoadedProducts(loadedProducts - 2)}>Anterior</button>}
-                        <span>{loadedProducts / 2} de {Math.ceil(productList.total / 20)}</span>
-                        {(loadedProducts * 10) < productList.total && <button onClick={() => setLoadedProducts(loadedProducts + 2)}>Siguente</button>}
+                        {loadedProducts > 2.1 && <button onClick={() => setLoadedProducts(loadedProducts - 2.1)}>Anterior</button>}
+                        <span>{loadedProducts / 2.1} de {Math.ceil(productList.total / 21)}</span>
+                        {(loadedProducts * 10) < productList.total && <button onClick={() => setLoadedProducts(loadedProducts + 2.1)}>Siguente</button>}
                     </div>
                 </div>
             </section>

@@ -7,8 +7,6 @@ export const CartProvider = ({ children }) => {
 
     const { user } = useContext(AuthContext)
 
-    const [totalQuantity, setTotalQuantity] = useState(null)
-
     // const urlHost = 'https://panel-control-bazar.000webhostapp.com/backend/'
     const urlHost = 'http://localhost:80/Bazar-Backend/'
 
@@ -27,7 +25,13 @@ export const CartProvider = ({ children }) => {
             .finally(() => getCart())
     }
 
-    const removeToCart = () => {
+    const deleteProductCart = async (productId) => {
+        const urlFile = `deleteCart.php`
+        const dataCart = new FormData()
+        dataCart.append('uid', user.uid)
+        dataCart.append('productId', productId)
+
+        return await callServer(urlFile, 'POST', dataCart)
 
     }
 
@@ -41,19 +45,15 @@ export const CartProvider = ({ children }) => {
 
     const getCart = async () => {
         const urlFile = `cart.php?uid=${user.uid}`
-        const response = await callServer(urlFile, 'GET')
-        const cart = await response.json()
-        setTotalQuantity(cart.total_quantity)
-        return cart.products
+        return await callServer(urlFile, 'GET')
     }
-    
+
 
     return <CartContext.Provider value={{
         addToCart,
-        removeToCart,
+        deleteProductCart,
         updateCart,
         getCart,
-        clearCart,
-        totalQuantity
+        clearCart
     }}>{children}</CartContext.Provider>
 }
