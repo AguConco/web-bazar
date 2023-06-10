@@ -7,7 +7,14 @@
     margin-bottom: 20px;
 }
 
+.container-cart {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+}
+
 .cart-list {
+    width: 900px;
     background: var(--white);
     border: 1px solid var(--light-grey);
     border-radius: 5px;
@@ -26,11 +33,15 @@
 }
 
 .th-quantity {
-    width: 300px;
+    width: 200px;
 }
 
 .th-price {
-    width: 250px;
+    width: 200px;
+}
+
+.th-delete {
+    width: 60px;
 }
 
 .cart-list tbody tr:last-child td {

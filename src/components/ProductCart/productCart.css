@@ -14,8 +14,8 @@
 }
 
 .td-product a img {
-    max-width: 40px;
-    height: 40px;
+    width: 40px;
+    max-height: 40px;
     object-fit: contain;
 }
 
@@ -36,6 +36,84 @@
     padding: 10px;
 }
 
+.td-quantity .loading {
+    animation: load 1.4s infinite linear;
+    margin: 0;
+    height: 30px;
+    width: 30px;
+}
+
+@keyframes load {
+    0% {
+        transform: scale(.5) rotate(0deg);
+    }
+
+    100% {
+        transform: scale(.5) rotate(360deg);
+    }
+}
+
+@keyframes load {
+    0% {
+        transform: scale(.5) rotate(0deg);
+    }
+
+    100% {
+        transform: scale(.5) rotate(360deg);
+    }
+}
+
+.td-quantity div {
+    display: flex;
+    align-items: center;
+}
+
+.td-quantity input {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    border: none;
+    border-top: 1px solid var(--secondary);
+    border-bottom: 1px solid var(--secondary);
+    background: var(--background);
+}
+
+.td-quantity button[type='button'] {
+    background: var(--background);
+    color: var(--primary);
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid var(--secondary);
+}
+
+.td-quantity button[type='button']:nth-child(1) {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+.td-quantity button[type='button']:nth-child(3) {
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+}
+
+.td-quantity button[type='button']:active {
+    background: var(--secondary);
+}
+
+.td-quantity span {
+    color: var(--dark-grey);
+    font-size: 14px;
+    display: inline-block;
+    transform: translate(5px, 3px);
+}
+
 .td-price {
     font-size: 18px;
     line-height: 18px;
@@ -48,10 +126,13 @@
     font-size: 14px;
 }
 
+.td-delete {
+    padding: 10px;
+}
+
 .delete-product-cart {
     padding: 7px 10px;
     border: none;
-    margin-right: 15px;
     cursor: pointer;
     position: relative;
     border-radius: 5px;

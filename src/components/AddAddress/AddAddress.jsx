@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import './AddAddress.css'
 import { AuthContext } from '../../context/authContext'
 import { Link } from 'react-router-dom'
@@ -7,6 +7,10 @@ import { Loading } from '../Loading/Loading'
 export function AddAddress() {
 
     const { user } = useContext(AuthContext)
+
+    useEffect(() => {
+        document.title = 'Agregar dirección • Bazar Regalería'
+    }, [])
 
     // El formulario va a ser otro componente el state error va en ese componente
 

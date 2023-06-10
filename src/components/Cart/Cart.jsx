@@ -5,16 +5,16 @@ import { Loading } from "../Loading/Loading"
 import { ProductCart } from "../ProductCart/ProductCart"
 import { InvalidCart } from "../InvalidCart/InvalidCart"
 import { EmptyCart } from "../EmptyCart/EmptyCart"
+import { CartDetail } from "../CartDetail/CartDetail"
 import './cart.css'
 
 export function Cart() {
 
-    const { getCart } = useContext(CartContext)
+    const { getCart, stateCart, updateCartWidget } = useContext(CartContext)
     const { user } = useContext(AuthContext)
 
     const [cart, setCart] = useState(null)
     const [loading, setLoading] = useState(true)
-    const [stateCart, setStateCart] = useState(false)
 
     useEffect(() => {
         if (user !== null) {
@@ -22,20 +22,20 @@ export function Cart() {
                 .then(e => e.json())
                 .then(e => {
                     setCart(e)
-                    setLoading(false)
+                    updateCartWidget()
                 })
-        }
+        } 
+        setLoading(false)
+        
         document.title = 'Carrito • Bazar Regalería'
     }, [user, stateCart])
 
     return (
-        loading ?
-            <Loading />
-            :
-            user ?
-                <section className="cart">
-                    <h1>Tu carrito</h1>
-                    {cart?.total_quantity ?
+        user ?
+            <section className="cart">
+                <h1>Tu carrito</h1>
+                {cart?.total_quantity ?
+                    <div className="container-cart">
                         <div className="cart-list">
                             <table cellSpacing={0}>
                                 <thead>
@@ -47,16 +47,18 @@ export function Cart() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {cart?.products.map(e => <ProductCart data={e} key={e.id} setStateCart={setStateCart} />)}
+                                    {cart.products.map(e => <ProductCart data={e} key={e.id} />)}
                                 </tbody>
                             </table>
-                            <div className="cart-detail">
-
-                            </div>
                         </div>
-                        :
-                        <EmptyCart />}
-                </section>
+                        <CartDetail products={cart.products} />
+                    </div>
+                    :
+                    <EmptyCart />}
+            </section>
+            :
+            loading ?
+                <Loading />
                 :
                 <InvalidCart />
     )

@@ -22,7 +22,7 @@ export function ProductDetail() {
                 const sub = subcategories.filter(s => s[0] === e[0].category.category_id)
                 linkSubcategories.length === 0 && setLinkSubcategories([...linkSubcategories, ...sub[0].map(s => e[0].category.subcategory.includes(s.split('|')[1]) && s)])
                 updateViews(e[0].id)
-                document.title = e[0].name +' • Bazar Regalería'
+                document.title = e[0].name + ' • Bazar Regalería'
             })
         // ver de agregar un historial de los productos que vio
     }, [productId])
@@ -38,7 +38,7 @@ export function ProductDetail() {
                         <div>
                             <span className="product-code">Código de referencia: {detail.code}</span>
                             <h1 className="product-name">{detail.name}</h1>
-                            <span className="product-price">${detail.price.price_public}</span>
+                            <span className="product-price">${parseInt(detail.price.price_public).toLocaleString('es-AR')}</span>
                         </div>
                         <AddToCart dataProduct={detail} />
                     </div>

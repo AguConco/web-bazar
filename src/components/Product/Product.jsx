@@ -6,11 +6,11 @@ export function Product({ data }) {
     return (
         <Link to={'/product/' + data.id} title={data.name} className='product'>
             <div className='container-picture'>
-                <img src={data.picture} alt={data.name} />
+                <img src={data.picture} alt={data.name} loading='lazy'/>
             </div>
             <div className="info-product">
                 <div>
-                    <span>$ {data.price.price_public}</span>
+                    <span>$ {parseInt(data.price.price_public).toLocaleString('es-AR')}</span>
                     <p>{data.available_quantity} en stock</p>
                 </div>
                 <p>{data.name}</p>

@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react'
+import { useContext } from 'react'
 import './NavBar.css'
 import { Link } from 'react-router-dom'
 import { ProductContext } from '../../context/productContext'

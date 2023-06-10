@@ -3,6 +3,7 @@ import './AddToCart.css'
 import { CartContext } from '../../context/cartContext'
 import { AuthContext } from '../../context/authContext'
 import { Link } from 'react-router-dom'
+import { QuantityCount } from '../QuantityCount/QuantityCount'
 
 export function AddToCart({ dataProduct }) {
 
@@ -27,9 +28,7 @@ export function AddToCart({ dataProduct }) {
     return (
         user ?
             <form className="add-to-cart" onSubmit={(e) => submitAddToCart(e)} >
-                <button onClick={() => changeCount(false)} type='button'>-</button>
-                <input type="text" disabled value={quantity} />
-                <button onClick={() => changeCount(true)} type='button'>+</button>
+                <QuantityCount changeCount={changeCount} quantity={quantity}/>
                 <span>{available_quantity} en stock</span>
                 <button type="submit">Agregar al carrito</button>
                 <button type="submit">Comprar</button>

@@ -8,9 +8,9 @@ import { CartWidget } from '../CartWidget/CartWidget'
 export function Header() {
     return (
         <header>
-            <div>
-                <div className='logo'>
-                    <Link to={'/'} title='Página principal de Bazar & Regalería'>
+            <div className='header-top'>
+                <div >
+                    <Link className='logo' to={'/'} title='Página principal de Bazar & Regalería'>
                         {/* <img src="" alt="logo" /> */}
                         B&R
                     </Link>

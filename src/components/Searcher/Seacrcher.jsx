@@ -8,7 +8,7 @@ export function Searcher() {
     document.onclick = e => {
         if (searchRef.current && !searchRef.current.contains(e.target)) setSearchResult(null)
     }
-    
+
     const { searchProduct } = useContext(ProductContext)
     const [searchResult, setSearchResult] = useState(null)
     const [search, setSearch] = useState()

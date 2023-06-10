@@ -7,14 +7,13 @@
     height: 35px;
 }
 
-.shopping-cart i {
+.shopping-cart img{
     transform: rotateY(180deg);
-    font-size: 22px;
 }
 
 .shopping-cart span {
     position: absolute;
-    top: -7px;
+    top: -3px;
     left: 0;
     display: inline-block;
     font-size: 11px;

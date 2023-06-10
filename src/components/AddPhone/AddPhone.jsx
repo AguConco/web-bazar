@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { Loading } from '../Loading/Loading'
 import './AddPhone.css'
 import { AuthContext } from '../../context/authContext'
@@ -8,6 +8,9 @@ export function AddPhone() {
 
     const { user } = useContext(AuthContext)
 
+    useEffect(() => {
+        document.title = 'Agregar teléfono • Bazar Regalería'
+    }, [])
     // El formulario va a ser otro componente el state error va en ese componente
 
     return (

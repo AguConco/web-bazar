@@ -3,21 +3,21 @@ import './CartWidget.css'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/cartContext'
 import { AuthContext } from '../../context/authContext'
+import shoppingCart from '../../assets/img/shopping-cart.png'
 
 export function CartWidget() {
 
-    const { getCart } = useContext(CartContext)
+    const { updateCartWidget, totalProductsCart, stateCart } = useContext(CartContext)
     const { user } = useContext(AuthContext)
-    const [total, setTotal] = useState(null)
 
     useEffect(() => {
-        setTotal()
-    }, [user])
+        user && updateCartWidget()
+    }, [user, stateCart])
 
     return (
         <Link to={'/cart'} className="shopping-cart">
-            <i className="fa-solid fa-cart-shopping"></i>
-            {user && total && <span>{total}</span>}
+            <img src={shoppingCart} />
+            {user && totalProductsCart && <span>{totalProductsCart}</span>}
         </Link>
     )
 }

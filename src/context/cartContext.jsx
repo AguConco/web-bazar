@@ -6,6 +6,8 @@ export const CartContext = createContext()
 export const CartProvider = ({ children }) => {
 
     const { user } = useContext(AuthContext)
+    const [totalProductsCart, setTotalProductsCart] = useState(null)
+    const [stateCart, setStateCart] = useState(false)
 
     // const urlHost = 'https://panel-control-bazar.000webhostapp.com/backend/'
     const urlHost = 'http://localhost:80/Bazar-Backend/'
@@ -22,7 +24,7 @@ export const CartProvider = ({ children }) => {
         dataCart.append('productId', productId)
 
         callServer(urlFile, 'POST', dataCart)
-            .finally(() => getCart())
+            .finally(() => updateCartWidget())
     }
 
     const deleteProductCart = async (productId) => {
@@ -35,12 +37,15 @@ export const CartProvider = ({ children }) => {
 
     }
 
-    const updateCart = () => {
+    const updateCart = async (productId, quantity) => {
+        const urlFile = `updateQuantityProductCart.php`
+        const dataCart = new FormData()
 
-    }
+        dataCart.append('uid', user.uid)
+        dataCart.append('productId', productId)
+        dataCart.append('quantity', quantity)
 
-    const clearCart = () => {
-
+        return await callServer(urlFile, 'POST', dataCart)
     }
 
     const getCart = async () => {
@@ -48,12 +53,21 @@ export const CartProvider = ({ children }) => {
         return await callServer(urlFile, 'GET')
     }
 
+    const updateCartWidget = () => {
+        const urlFile = `cartWidget.php?uid=${user.uid}`
+        callServer(urlFile, 'GET')
+            .then(e => e.json())
+            .then(e => setTotalProductsCart(e.total_products))
+    }
 
     return <CartContext.Provider value={{
         addToCart,
         deleteProductCart,
         updateCart,
         getCart,
-        clearCart
+        updateCartWidget,
+        setStateCart,
+        stateCart,
+        totalProductsCart
     }}>{children}</CartContext.Provider>
 }
