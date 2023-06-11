@@ -12,7 +12,7 @@ export function Header() {
                 <div >
                     <Link className='logo' to={'/'} title='Página principal de Bazar & Regalería'>
                         {/* <img src="" alt="logo" /> */}
-                        B&R
+                        Logo
                     </Link>
                 </div>
                 <Searcher />

@@ -16,15 +16,14 @@ export const CartProvider = ({ children }) => {
         return await fetch(`${urlHost}${urlFile}`, { method, body })
     }
 
-    const addToCart = (quantity, productId) => {
+    const addToCart = async (quantity, productId) => {
         const urlFile = `cart.php`
         const dataCart = new FormData()
         dataCart.append('quantity', quantity)
         dataCart.append('uid', user.uid)
         dataCart.append('productId', productId)
 
-        callServer(urlFile, 'POST', dataCart)
-            .finally(() => updateCartWidget())
+        return await callServer(urlFile, 'POST', dataCart)
     }
 
     const deleteProductCart = async (productId) => {

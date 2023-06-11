@@ -46,12 +46,12 @@ export function ProductDetail() {
                         <span>Ver más sobre</span>
                         <Link
                             to={`/category/${detail.category.category_id}/all`}
-                            onClick={() => setLoadedProducts(2)}
+                            onClick={() => setLoadedProducts(2.1)}
                         >{category.map(e => e.categoryId === detail.category.category_id && e.categoryName)}</Link>
                         {linkSubcategories.map(e => e && <Link
                             key={e.split('|')[1]}
                             to={`/category/${detail.category.category_id}/${e.split('|')[1]}`}
-                            onClick={() => setLoadedProducts(2)}
+                            onClick={() => setLoadedProducts(2.1)}
                         >{e.split('|')[0]}</Link>)}
                     </div>
                 </div>
